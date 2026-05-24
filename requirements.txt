@@ -11,6 +11,7 @@ sentencepiece
 gradio
 scipy
 scikit-learn
+matplotlib
 wandb
 
 torch==2.0.1
