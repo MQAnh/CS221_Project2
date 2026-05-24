@@ -2,12 +2,13 @@
 
 
 declare -A epochs=(["mnli"]=30 ["mrpc"]=30 ["qnli"]=25 ["qqp"]=25 ["rte"]=80 ["sst2"]=60 ["stsb"]=40 ["cola"]=80)
-declare -A bs=(["mnli"]=128 ["mrpc"]=128 ["qnli"]=128 ["qqp"]=128 ["rte"]=128 ["sst2"]=128 ["stsb"]=128 ["cola"]=64)
+declare -A bs=(["mnli"]=128 ["mrpc"]=128 ["qnli"]=128 ["qqp"]=128 ["rte"]=16 ["sst2"]=128 ["stsb"]=128 ["cola"]=64)
 declare -A ml=(["mnli"]=256 ["mrpc"]=256 ["qnli"]=256 ["qqp"]=256 ["rte"]=512 ["sst2"]=256 ["stsb"]=256 ["cola"]=256)
 declare -A lr=(["mnli"]="5e-4" ["mrpc"]="4e-4" ["qnli"]="4e-4" ["qqp"]="4e-4" ["rte"]="4e-4" ["sst2"]="5e-4" ["stsb"]="4e-4" ["cola"]="4e-4")
 declare -A metrics=(["mnli"]="accuracy" ["mrpc"]="accuracy" ["qnli"]="accuracy" ["qqp"]="accuracy" ["rte"]="accuracy" ["sst2"]="accuracy" ["stsb"]="pearson" ["cola"]="matthews_correlation")
 
-export WANDB_MODE=offline
+export WANDB_DISABLED=true
+export WANDB_MODE=disabled
 # RTE    2, 490; 277 (5)
 # MRPC   3, 668; 408 (8)
 # STSB   5, 749; 1, 379 (11)
@@ -61,7 +62,9 @@ run(){
   --run_name ${wandb_run_name} \
   --overwrite_output_dir
 }
-task_base=('mnli' 'mrpc' 'qnli' 'qqp' 'rte' 'sst2' 'stsb' 'cola')
+# task_base=('mnli' 'mrpc' 'qnli' 'qqp' 'rte' 'sst2' 'stsb' 'cola')
+task_base=('rte')
+
 
 for task in "${task_base[@]}"; do
     # run $task "8" "1" "base"

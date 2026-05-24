@@ -9,3 +9,6 @@ __pycache__
 /data
 /llama-lora
 /wandb
+/data
+topic_phobert_lora/
+topic_phobert_Melora/
