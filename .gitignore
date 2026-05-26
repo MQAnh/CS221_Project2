@@ -12,3 +12,6 @@ __pycache__
 /data
 topic_phobert_lora/
 topic_phobert_Melora/
+
+topic_xlmr_lora/
+topic_xlmr_melora/
