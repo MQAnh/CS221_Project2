@@ -74,19 +74,18 @@ data/UIT-ViON_dev.csv
 data/UIT-ViON_test.csv
 ```
 
-Các file CSV cần có ít nhất các cột:
+Các file CSV có các cột:
 
 ```text
 title, link, label
 ```
 
-Có thể tải dữ liệu bằng:
-
-```bash
-bash load_topic_dataset.sh
-```
-
 ## Huấn Luyện
+
+Để chuyển đổi giữa LoRA và MeLORA trong thực nghiệm, chỉnh --mode base cho LoRA và --mode me cho MeLORA
+
+**Lưu ý :** Khi chọn MeLORA nhớ setup lnums theo thực nghiệm cung cấp 
+
 
 Chạy PhoBERT + LoRA:
 
